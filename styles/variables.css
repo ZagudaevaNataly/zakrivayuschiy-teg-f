@@ -1,0 +1,32 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  --main-font-family: 'PressStart2P', 'fantasy';
+  --second-font-family: Inter;
+
+  --main-text-color: #000;
+  --second-text-color: #fff;
+  --like-color: #ff0000;
+  --button-text-color: var(--main-background-color);
+
+  --main-bg: #fff;
+  --second-bg: #000;
+  --bg:
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+
+  --logo-font-size: clamp(3.06rem, calc(2.71rem + 1.50vw), 4.06rem);
+  --title-font-size: clamp(0.88rem, calc(0.68rem + 0.85vw), 1.44rem);
+  --section-size: clamp(23.19rem, calc(15.95rem + 30.89vw), 43.75rem);
+
+  --heart-contour-color: #000;
+  --heart-main-body-color: #ff0000;
+  --heart-sparks-color: #FF0000;
+}
+
+@media (width <=375px) {
+  :root {
+    --section-size: 100%;
+  }
+}
