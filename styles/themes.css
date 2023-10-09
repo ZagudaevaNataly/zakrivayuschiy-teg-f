@@ -29,6 +29,10 @@
     --heart-contour-color: #000;
     --heart-main-body-color: #ff0000;
     --heart-sparks-color: #FF0000;
+
+    --color-text-stroke: #000;
+
+    --button-text-color: #000;
 }
 
 :root.theme-dark {
@@ -54,6 +58,10 @@
     --heart-contour-color: #00cc14;
     --heart-main-body-color: #ff0000;
     --heart-sparks-color: #FF0000;
+
+    --color-text-stroke: #00cc14;
+
+    --button-text-color: #00CC14;
 }
 
 @media (prefers-color-scheme: light) {
