@@ -4,6 +4,9 @@
   --main-font-family: 'PressStart2P', 'fantasy';
   --second-font-family: Inter;
 
+  --font-weight-main: 400;
+  --font-weight-title: 700;
+
   --main-text-color: #000;
   --second-text-color: #fff;
   --like-color: #ff0000;

@@ -147,7 +147,7 @@
 
 .content__title {
   font-size: 18px;
-  font-weight: 700;
+  font-variation-settings: "wght" var(--font-weight-title);
   padding: 5px 10px;
   border-block-end: 2px solid currentColor;
   font-family: var(--second-font-family);
@@ -282,6 +282,7 @@
   transition: box-shadow 0.3s ease;
   overflow: hidden;
   cursor: pointer;
+  font-variation-settings: "wght" var(--font-weight-main);
 }
 
 .button::before {
