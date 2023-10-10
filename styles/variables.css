@@ -10,7 +10,6 @@
   --main-text-color: #000;
   --second-text-color: #fff;
   --like-color: #ff0000;
-  --button-text-color: var(--main-background-color);
 
   --main-bg: #fff;
   --second-bg: #000;
@@ -28,6 +27,7 @@
   --heart-sparks-color: #FF0000;
 
   --color-text-stroke: #000;
+  --button-text-color: #fff;
 }
 
 @media (width <=375px) {
