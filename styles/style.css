@@ -91,36 +91,35 @@
   cursor: pointer;
 }
 
-.theme-menu__button:disabled {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.theme-menu__button:hover {
-  opacity: 0.6;
-}
-
 .theme-menu__button::after {
   content: "";
   display: block;
   inline-size: 0%;
   block-size: 2px;
   margin-block-start: 2px;
-  background-color: var(--main-bg);
+  background-color: currentColor;
   transition: width 0.3s ease;
+  scale: 0;
 }
 
-.theme-menu__button:hover::after {
-  inline-size: 100%;
-}
-
-.theme-menu__button:focus {
+.theme-menu__button:hover {
   opacity: 0.6;
+}
+
+
+.theme-menu__button:focus-visible {
   outline: none;
+  opacity: 0.6;
 }
 
 .theme-menu__button:focus-visible::after {
   inline-size: 100%;
+  scale: 1;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .theme-menu__button:disabled::before {
@@ -129,6 +128,7 @@
   left: -14px;
   animation: pointer 0.5s infinite ease-in-out alternate;
 }
+
 
 /* ------------------main------------------------------------ */
 
@@ -168,17 +168,26 @@
   color: var(--main-text-color);
   font-family: var(--main-font-family);
   text-transform: uppercase;
-  inset-block-start: 18px;
+  inset-block-start: 26px;
   inset-inline-end: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
   mix-blend-mode: hard-light;
-  text-shadow: 0 0 1px var(--color-text-stroke);
+  text-shadow: 1px 1px var(--color-text-stroke),
+    -1px 1px var(--color-text-stroke),
+    1px -1px var(--color-text-stroke),
+    -1px -1px var(--color-text-stroke);
 }
 
-@supports ((text-stroke: 1px var(--main-text-color)) or (-webkit-text-stroke: 1px var(--main-text-color))) {
+@supports (-webkit-text-stroke: 1px var(--color-text-stroke)) {
   .content__label {
-    text-shadow: none;
-    text-rendering: 1px var(--color-text-stroke);
     -webkit-text-stroke: 1px var(--color-text-stroke);
+    text-shadow: none;
+  }
+}
+
+@supports (text-stroke: 1px var(--color-text-stroke)) {
+  .content__label {
+    text-stroke: 1px var(--color-text-stroke);
+    text-shadow: none;
   }
 }
 
@@ -272,55 +281,49 @@
 }
 
 .button {
-  position: relative;
-  padding: 9px 17px;
-  color: var(--main-text-color);
-  background-color: var(--main-bg);
+  text-align: center;
   border: 2px solid var(--second-bg);
-  font-family: var(--main-font-family);
-  font-size: 14px;
-  line-height: 90%;
-  transition: box-shadow 0.3s ease;
-  overflow: hidden;
+  background: var(--main-bg);
+  text-transform: none;
   cursor: pointer;
-  font-variation-settings: "wght" var(--font-weight-main);
+  transition: translate 0.3s ease;
+  overflow: hidden;
+  position: relative;
   z-index: 0;
 }
 
+.button__text {
+  position: relative;
+  z-index: 3;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+  line-height: 90%;
+  font-size: 14px;
+  font-family: var(--main-font-family);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px var(--second-bg);
+}
+
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
-  inset: 0;
-  background-color: var(--second-bg);
-  transition: translate .5s ease-in-out;
+  width: 100%;
+  height: 100%;
   translate: -100%;
+  transition: translate 0.5s ease-in-out;
+  background-color: var(--second-bg);
   z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 .button:hover::before {
   translate: 0%;
 }
 
-.button:focus {
-  outline: none;
-}
-
-.button:focus-visible {
-  box-shadow: 2px 2px 0 var(--second-bg);
-  outline: none;
-}
-
-.button:hover .button__text {
-  color: var(--second-text-color);
-  mix-blend-mode: difference;
-}
-
-.button__text {
-  position: relative;
-  mix-blend-mode: difference;
-  z-index: 3;
-  color: var(--button-text-color);
-}
 
 .button__save {
   display: flex;
@@ -417,43 +420,53 @@
   cursor: pointer;
 }
 
+.core {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.03s linear;
+}
+
 .like-icon .sparks {
   opacity: 0;
 }
 
 .like-icon:hover .main-body {
   fill: var(--heart-contour-color);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:hover .core {
   fill: var(--heart-contour-color);
-  transition: fill 0.3s 0.08s linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
   fill: var(--heart-main-body-color);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .core {
   fill: var(--heart-main-body-color);
-  transition: fill 0.3s 0.05s linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--heart-main-body-color);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .core {
   fill: var(--heart-main-body-color);
-  transition: fill 0.3s 0.03s linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--heart-main-body-color);
-  transition: fill 0.3s 0.01s linear;
+  transition: fill 0.3s 0.06s linear;
 }
 
 .like-icon.is-liked .heart {
@@ -462,7 +475,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in alternate;
+  animation: sparks 0.3s 0.1s ease-in alternate;
 }
 
 .like-icon:not(.is-liked) .contour {
