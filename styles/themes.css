@@ -35,6 +35,9 @@
   --color-text-stroke: #000;
 
   --button-text-color: #fff;
+
+  --label-text-color: #000;
+  --label-taxt-shadow: #fff;
 }
 
 :root.theme-dark {
@@ -66,6 +69,9 @@
   --color-text-stroke: #00cc14;
 
   --button-text-color: #00CC14;
+
+  --label-text-color: #00CC14;
+  --label-taxt-shadow: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -98,5 +104,8 @@
     --color-text-stroke: #00cc14;
 
     --button-text-color: #00CC14;
+
+    --label-text-color: #00CC14;
+    --label-taxt-shadow: #000;
   }
 }

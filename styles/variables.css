@@ -28,6 +28,9 @@
 
   --color-text-stroke: #000;
   --button-text-color: #fff;
+
+  --label-text-color: #000;
+  --label-taxt-shadow: #fff;
 }
 
 @media (width <=375px) {
